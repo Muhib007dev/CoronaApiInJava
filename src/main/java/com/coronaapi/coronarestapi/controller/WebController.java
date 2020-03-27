@@ -21,7 +21,7 @@ import com.coronaapi.coronarestapi.models.SampleResponse;
 public class WebController {
 	
 	@Scheduled(cron = "* 1 * * * *")
-	@RequestMapping("/sample")
+	@RequestMapping("/")
 	public ArrayList<SampleResponse> Sample() throws Exception {
 		
 
