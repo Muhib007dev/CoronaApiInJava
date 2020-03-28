@@ -34,7 +34,7 @@ public class WebController {
 		HtmlPage page = client.getPage(url);
 
 		
-		final HtmlTable table = (HtmlTable) page.getByXPath("//table[@class='table table-striped table-dark']").get(8);
+		final HtmlTable table = (HtmlTable) page.getByXPath("//table[@class='table table-striped table-dark']").get(9);
 		
 		DomNodeList<HtmlElement> cell = table.getElementsByTagName("td");
 
