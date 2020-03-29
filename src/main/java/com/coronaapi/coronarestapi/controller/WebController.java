@@ -61,7 +61,7 @@ public class WebController {
 	
 	
 	@Scheduled(cron = "* 1 * * * *")
-	@RequestMapping("/country/all")
+	@RequestMapping("/all-countries")
 	public ArrayList<AllCountryModel> all() throws Exception{
 		
 		WebClient client = new WebClient();
