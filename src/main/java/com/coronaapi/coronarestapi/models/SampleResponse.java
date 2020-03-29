@@ -4,18 +4,13 @@ import java.util.Collection;
 
 public class SampleResponse {
 	private String state;
-	private String totalConfirmedCasesIndian;
-	private String totalConfirmedCasesForeign;
+	private String totalConfirmedCases;
 	private String cured;
 	private String death;
-	
-	
-	public SampleResponse(String state, String totalConfirmedCasesIndian, String totalConfirmedCasesForeign,
-			String cured, String death) {
+	public SampleResponse(String state, String totalConfirmedCases, String cured, String death) {
 		super();
 		this.state = state;
-		this.totalConfirmedCasesIndian = totalConfirmedCasesIndian;
-		this.totalConfirmedCasesForeign = totalConfirmedCasesForeign;
+		this.totalConfirmedCases = totalConfirmedCases;
 		this.cured = cured;
 		this.death = death;
 	}
@@ -25,17 +20,11 @@ public class SampleResponse {
 	public void setState(String state) {
 		this.state = state;
 	}
-	public String getTotalConfirmedCasesIndian() {
-		return totalConfirmedCasesIndian;
+	public String getTotalConfirmedCases() {
+		return totalConfirmedCases;
 	}
-	public void setTotalConfirmedCasesIndian(String totalConfirmedCasesIndian) {
-		this.totalConfirmedCasesIndian = totalConfirmedCasesIndian;
-	}
-	public String getTotalConfirmedCasesForeign() {
-		return totalConfirmedCasesForeign;
-	}
-	public void setTotalConfirmedCasesForeign(String totalConfirmedCasesForeign) {
-		this.totalConfirmedCasesForeign = totalConfirmedCasesForeign;
+	public void setTotalConfirmedCases(String totalConfirmedCases) {
+		this.totalConfirmedCases = totalConfirmedCases;
 	}
 	public String getCured() {
 		return cured;
