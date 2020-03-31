@@ -74,7 +74,7 @@ public class WebController {
 		
 		ArrayList<AllCountryModel> arrayList = new ArrayList<AllCountryModel>();
 
-		 for(int i = 1 ; i<202 ; i++) {
+		 for(int i = 1 ; i<203 ; i++) {
 		for(int j=0;j<1;j++) {
 			arrayList.add(new AllCountryModel(table.getCellAt(i, j).asText(),table.getCellAt(i, j+1).asText(),table.getCellAt(i, j+3).asText(),table.getCellAt(i, j+5).asText(),table.getCellAt(i, j+6).asText()));
 		}
@@ -100,7 +100,7 @@ public class WebController {
 		
 		ArrayList<TotalModel> arrayList = new ArrayList<TotalModel>();
 
-		 for(int i = 202 ; i<203 ; i++) {
+		 for(int i = 203 ; i<204 ; i++) {
 		for(int j=0;j<1;j++) {
 			arrayList.add(new TotalModel(table.getCellAt(i, j+1).asText(),table.getCellAt(i, j+3).asText(),table.getCellAt(i, j+5).asText(),table.getCellAt(i, j+6).asText()));
 		}
