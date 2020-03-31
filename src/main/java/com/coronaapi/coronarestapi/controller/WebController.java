@@ -21,6 +21,7 @@ import com.coronaapi.coronarestapi.models.AllCountryModel;
 import com.coronaapi.coronarestapi.models.CheckStateModel;
 import com.coronaapi.coronarestapi.models.CheckedCountryModel;
 import com.coronaapi.coronarestapi.models.SampleResponse;
+import com.coronaapi.coronarestapi.models.TotalInIndiaModel;
 import com.coronaapi.coronarestapi.models.TotalModel;
 
 @RestController
@@ -113,6 +114,34 @@ public class WebController {
 		
 		return arrayList;	
 	}
+	
+	@Scheduled(cron = "* 1 * * * *")
+	@RequestMapping("/total-in-india")
+	public TotalInIndiaModel totalInIndia() throws Exception{
+		
+		WebClient client = new WebClient();
+		client.getOptions().setCssEnabled(false);
+		client.getOptions().setJavaScriptEnabled(false);
+
+		final String url = "https://www.mohfw.gov.in/";
+		HtmlPage page = client.getPage(url);
+
+		final HtmlTable table = (HtmlTable) page.getByXPath("//table[@class='table table-striped table-dark']").get(9);
+		
+		TotalInIndiaModel totalInIndia = null;
+
+		for(int i = 28 ; i<29 ; i++) {
+			for(int j=1;j<2;j++) {
+			totalInIndia = new TotalInIndiaModel(table.getCellAt(i, j+1).asText(),table.getCellAt(i, j+2).asText(),table.getCellAt(i, j+3).asText());
+		}
+	}
+//			System.out.println(table.getCellAt(i, j).asText()+table.getCellAt(i, j+1).asText()+" "+table.getCellAt(i, j+3).asText()+" "+table.getCellAt(i, j+5).asText()+" "+table.getCellAt(i, j+6).asText());
+				
+		
+		return totalInIndia;	
+	}
+	
+
 	
 	
 
@@ -227,10 +256,11 @@ public class WebController {
 		
 		System.out.println("running....");
 		return stateModel ;
-
+						
 		
 	}
 
+	
 	
 	
 	
