@@ -11,5 +11,5 @@ public class CoronarestapiApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CoronarestapiApplication.class, args);
 	}
-
+	
 }

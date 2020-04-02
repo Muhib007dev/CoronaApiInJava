@@ -41,7 +41,7 @@ public class WebController {
 		HtmlPage page = client.getPage(url);
 
 		
-		final HtmlTable table = (HtmlTable) page.getByXPath("//table[@class='table table-striped table-dark']").get(9);
+		final HtmlTable table = (HtmlTable) page.getByXPath("//table[@class='table table-striped']").get(0);
 		
 		DomNodeList<HtmlElement> cell = table.getElementsByTagName("td");
 
@@ -50,7 +50,7 @@ public class WebController {
 		
 		ArrayList<SampleResponse> arrayList = new ArrayList<SampleResponse>();
 
-		for(int i = 1 ; i<28 ; i++) {
+		for(int i = 1 ; i<30 ; i++) {
 			for(int j=1;j<2;j++) {
 				arrayList.add(new SampleResponse(table.getCellAt(i, j).asText(), table.getCellAt(i, j+1).asText(), table.getCellAt(i, j+2).asText(), table.getCellAt(i, j+3).asText()));
 			}
@@ -78,13 +78,16 @@ public class WebController {
 		
 		ArrayList<AllCountryModel> arrayList = new ArrayList<AllCountryModel>();
 
-		 for(int i = 1 ; i<203 ; i++) {
+
+		
+		 for(int i = 1 ; i<205 ; i++) {
 		for(int j=0;j<1;j++) {
 			arrayList.add(new AllCountryModel(table.getCellAt(i, j).asText(),table.getCellAt(i, j+1).asText(),table.getCellAt(i, j+3).asText(),table.getCellAt(i, j+5).asText(),table.getCellAt(i, j+6).asText()));
 		}
 	}
 //			System.out.println(table.getCellAt(i, j).asText()+table.getCellAt(i, j+1).asText()+" "+table.getCellAt(i, j+3).asText()+" "+table.getCellAt(i, j+5).asText()+" "+table.getCellAt(i, j+6).asText());
 				
+		 
 		
 		return arrayList;	
 	}
@@ -104,7 +107,7 @@ public class WebController {
 		
 		ArrayList<TotalModel> arrayList = new ArrayList<TotalModel>();
 
-		 for(int i = 203 ; i<204 ; i++) {
+		 for(int i = 206 ; i<207 ; i++) {
 		for(int j=0;j<1;j++) {
 			arrayList.add(new TotalModel(table.getCellAt(i, j+1).asText(),table.getCellAt(i, j+3).asText(),table.getCellAt(i, j+5).asText(),table.getCellAt(i, j+6).asText()));
 		}
@@ -126,11 +129,11 @@ public class WebController {
 		final String url = "https://www.mohfw.gov.in/";
 		HtmlPage page = client.getPage(url);
 
-		final HtmlTable table = (HtmlTable) page.getByXPath("//table[@class='table table-striped table-dark']").get(9);
+		final HtmlTable table = (HtmlTable) page.getByXPath("//table[@class='table table-striped']").get(0);
 		
 		TotalInIndiaModel totalInIndia = null;
 
-		for(int i = 28 ; i<29 ; i++) {
+		for(int i = 30 ; i<31 ; i++) {
 			for(int j=1;j<2;j++) {
 			totalInIndia = new TotalInIndiaModel(table.getCellAt(i, j+1).asText(),table.getCellAt(i, j+2).asText(),table.getCellAt(i, j+3).asText());
 		}
@@ -198,7 +201,7 @@ public class WebController {
 
 	@RequestMapping("/country")
 	public CheckedCountryModel checkCountry(@RequestParam(value = "countryname",
-			defaultValue = "Please Check The Parameter") String countryname) throws Exception{
+			defaultValue = "India") String countryname) throws Exception{
 		
 		WebClient client = new WebClient();
 		client.getOptions().setCssEnabled(false);
@@ -213,7 +216,7 @@ public class WebController {
 		CheckedCountryModel countryModel = null;
 
 		
-		 for(int i = 1 ; i<203 ; i++) {
+		 for(int i = 1 ; i<204 ; i++) {
 		for(int j=0;j<1;j++) {
 			if(countryname.contains(table.getCellAt(i, j).asText())) {
 				countryModel = new CheckedCountryModel(table.getCellAt(i, j).asText(), table.getCellAt(i, j+1).asText(), table.getCellAt(i, j+3).asText(), table.getCellAt(i, j+5).asText(), table.getCellAt(i, j+6).asText());
@@ -242,7 +245,7 @@ public class WebController {
 		HtmlPage page = client.getPage(url);
 
 		
-		final HtmlTable table = (HtmlTable) page.getByXPath("//table[@class='table table-striped table-dark']").get(9);
+		final HtmlTable table = (HtmlTable) page.getByXPath("//table[@class='table table-striped']").get(0);
 		
 		CheckStateModel stateModel = null;
 		
