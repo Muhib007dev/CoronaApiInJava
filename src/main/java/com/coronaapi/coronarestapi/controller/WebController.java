@@ -80,7 +80,7 @@ public class WebController {
 
 
 		
-		 for(int i = 1 ; i<205 ; i++) {
+		 for(int i = 1 ; i<207 ; i++) {
 		for(int j=0;j<1;j++) {
 			arrayList.add(new AllCountryModel(table.getCellAt(i, j).asText(),table.getCellAt(i, j+1).asText(),table.getCellAt(i, j+3).asText(),table.getCellAt(i, j+5).asText(),table.getCellAt(i, j+6).asText()));
 		}
@@ -107,7 +107,7 @@ public class WebController {
 		
 		TotalModel model = null;
 
-		 for(int i = 206 ; i<207 ; i++) {
+		 for(int i = 207 ; i<208 ; i++) {
 		for(int j=0;j<1;j++) {
 			model = new TotalModel(table.getCellAt(i, j+1).asText(),table.getCellAt(i, j+3).asText(),table.getCellAt(i, j+5).asText(),table.getCellAt(i, j+6).asText());
 		}
@@ -216,7 +216,7 @@ public class WebController {
 		CheckedCountryModel countryModel = null;
 
 		
-		 for(int i = 1 ; i<204 ; i++) {
+		 for(int i = 1 ; i<207 ; i++) {
 		for(int j=0;j<1;j++) {
 			if(countryname.contains(table.getCellAt(i, j).asText())) {
 				countryModel = new CheckedCountryModel(table.getCellAt(i, j).asText(), table.getCellAt(i, j+1).asText(), table.getCellAt(i, j+3).asText(), table.getCellAt(i, j+5).asText(), table.getCellAt(i, j+6).asText());
@@ -249,7 +249,7 @@ public class WebController {
 		
 		CheckStateModel stateModel = null;
 		
-		for(int i = 1 ; i<28 ; i++) {
+		for(int i = 1 ; i<30 ; i++) {
 			for(int j=1;j<2;j++) {
 				if(statename.contains(table.getCellAt(i, j).asText())) {
 					stateModel = new CheckStateModel(table.getCellAt(i, j).asText(), table.getCellAt(i, j+1).asText(), table.getCellAt(i, j+2).asText(), table.getCellAt(i, j+3).asText());
