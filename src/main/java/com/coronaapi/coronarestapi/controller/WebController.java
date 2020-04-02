@@ -95,7 +95,7 @@ public class WebController {
 
 	@Scheduled(cron = "* 1 * * * *")
 	@RequestMapping("/total-world")
-	public ArrayList<TotalModel> total() throws Exception{
+	public TotalModel total() throws Exception{
 		
 		WebClient client = new WebClient();
 		client.getOptions().setCssEnabled(false);
@@ -105,17 +105,17 @@ public class WebController {
 		HtmlPage page = client.getPage(url);
 		final HtmlTable table = page.getHtmlElementById("main_table_countries_today");		
 		
-		ArrayList<TotalModel> arrayList = new ArrayList<TotalModel>();
+		TotalModel model = null;
 
 		 for(int i = 206 ; i<207 ; i++) {
 		for(int j=0;j<1;j++) {
-			arrayList.add(new TotalModel(table.getCellAt(i, j+1).asText(),table.getCellAt(i, j+3).asText(),table.getCellAt(i, j+5).asText(),table.getCellAt(i, j+6).asText()));
+			model = new TotalModel(table.getCellAt(i, j+1).asText(),table.getCellAt(i, j+3).asText(),table.getCellAt(i, j+5).asText(),table.getCellAt(i, j+6).asText());
 		}
 	}
 //			System.out.println(table.getCellAt(i, j).asText()+table.getCellAt(i, j+1).asText()+" "+table.getCellAt(i, j+3).asText()+" "+table.getCellAt(i, j+5).asText()+" "+table.getCellAt(i, j+6).asText());
 				
 		
-		return arrayList;	
+		return model;	
 	}
 	
 	@Scheduled(cron = "* 1 * * * *")
