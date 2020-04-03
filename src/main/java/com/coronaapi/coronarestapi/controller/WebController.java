@@ -26,13 +26,11 @@ import com.coronaapi.coronarestapi.models.TotalModel;
 
 @RestController
 public class WebController {
-	
+
 	@Scheduled(cron = "* 1 * * * *")
 	@RequestMapping("/india-states-data")
 	public ArrayList<SampleResponse> Sample() throws Exception {
-		
 
-		
 		WebClient client = new WebClient();
 		client.getOptions().setCssEnabled(false);
 		client.getOptions().setJavaScriptEnabled(false);
@@ -40,88 +38,78 @@ public class WebController {
 		final String url = "https://www.mohfw.gov.in/";
 		HtmlPage page = client.getPage(url);
 
-		
 		final HtmlTable table = (HtmlTable) page.getByXPath("//table[@class='table table-striped']").get(0);
-		
+
 		DomNodeList<HtmlElement> cell = table.getElementsByTagName("td");
 
-		
-
-		
 		ArrayList<SampleResponse> arrayList = new ArrayList<SampleResponse>();
 
-		for(int i = 1 ; i<30 ; i++) {
-			for(int j=1;j<2;j++) {
-				arrayList.add(new SampleResponse(table.getCellAt(i, j).asText(), table.getCellAt(i, j+1).asText(), table.getCellAt(i, j+2).asText(), table.getCellAt(i, j+3).asText()));
+		for (int i = 1; i < 31; i++) {
+			for (int j = 1; j < 2; j++) {
+				arrayList.add(new SampleResponse(table.getCellAt(i, j).asText(), table.getCellAt(i, j + 1).asText(),
+						table.getCellAt(i, j + 2).asText(), table.getCellAt(i, j + 3).asText()));
 			}
 		}
-		
+
 		System.out.println("running....");
-		return arrayList ;
+		return arrayList;
 	}
-	
-	
-	
-	
-	
+
 	@Scheduled(cron = "* 1 * * * *")
 	@RequestMapping("/all-countries")
-	public ArrayList<AllCountryModel> all() throws Exception{
-		
+	public ArrayList<AllCountryModel> all() throws Exception {
+
 		WebClient client = new WebClient();
 		client.getOptions().setCssEnabled(false);
 		client.getOptions().setJavaScriptEnabled(false);
 
 		final String url = "https://www.worldometers.info/coronavirus/";
 		HtmlPage page = client.getPage(url);
-		final HtmlTable table = page.getHtmlElementById("main_table_countries_today");		
-		
+		final HtmlTable table = page.getHtmlElementById("main_table_countries_today");
+
 		ArrayList<AllCountryModel> arrayList = new ArrayList<AllCountryModel>();
 
-
-		
-		 for(int i = 1 ; i<207 ; i++) {
-		for(int j=0;j<1;j++) {
-			arrayList.add(new AllCountryModel(table.getCellAt(i, j).asText(),table.getCellAt(i, j+1).asText(),table.getCellAt(i, j+3).asText(),table.getCellAt(i, j+5).asText(),table.getCellAt(i, j+6).asText()));
+		for (int i = 1; i < 207; i++) {
+			for (int j = 0; j < 1; j++) {
+				arrayList.add(new AllCountryModel(table.getCellAt(i, j).asText(), table.getCellAt(i, j + 1).asText(),
+						table.getCellAt(i, j + 3).asText(), table.getCellAt(i, j + 5).asText(),
+						table.getCellAt(i, j + 6).asText()));
+			}
 		}
-	}
 //			System.out.println(table.getCellAt(i, j).asText()+table.getCellAt(i, j+1).asText()+" "+table.getCellAt(i, j+3).asText()+" "+table.getCellAt(i, j+5).asText()+" "+table.getCellAt(i, j+6).asText());
-				
-		 
-		
-		return arrayList;	
-	}
 
+		return arrayList;
+	}
 
 	@Scheduled(cron = "* 1 * * * *")
 	@RequestMapping("/total-world")
-	public TotalModel total() throws Exception{
-		
+	public TotalModel total() throws Exception {
+
 		WebClient client = new WebClient();
 		client.getOptions().setCssEnabled(false);
 		client.getOptions().setJavaScriptEnabled(false);
 
 		final String url = "https://www.worldometers.info/coronavirus/";
 		HtmlPage page = client.getPage(url);
-		final HtmlTable table = page.getHtmlElementById("main_table_countries_today");		
-		
+		final HtmlTable table = page.getHtmlElementById("main_table_countries_today");
+
 		TotalModel model = null;
 
-		 for(int i = 207 ; i<208 ; i++) {
-		for(int j=0;j<1;j++) {
-			model = new TotalModel(table.getCellAt(i, j+1).asText(),table.getCellAt(i, j+3).asText(),table.getCellAt(i, j+5).asText(),table.getCellAt(i, j+6).asText());
+		for (int i = 207; i < 208; i++) {
+			for (int j = 0; j < 1; j++) {
+				model = new TotalModel(table.getCellAt(i, j + 1).asText(), table.getCellAt(i, j + 3).asText(),
+						table.getCellAt(i, j + 5).asText(), table.getCellAt(i, j + 6).asText());
+			}
 		}
-	}
 //			System.out.println(table.getCellAt(i, j).asText()+table.getCellAt(i, j+1).asText()+" "+table.getCellAt(i, j+3).asText()+" "+table.getCellAt(i, j+5).asText()+" "+table.getCellAt(i, j+6).asText());
-				
-		
-		return model;	
+
+		return model;
 	}
-	
+
 	@Scheduled(cron = "* 1 * * * *")
 	@RequestMapping("/total-in-india")
-	public TotalInIndiaModel totalInIndia() throws Exception{
-		
+	public TotalInIndiaModel totalInIndia() throws Exception {
+
 		WebClient client = new WebClient();
 		client.getOptions().setCssEnabled(false);
 		client.getOptions().setJavaScriptEnabled(false);
@@ -130,23 +118,19 @@ public class WebController {
 		HtmlPage page = client.getPage(url);
 
 		final HtmlTable table = (HtmlTable) page.getByXPath("//table[@class='table table-striped']").get(0);
-		
+
 		TotalInIndiaModel totalInIndia = null;
 
-		for(int i = 30 ; i<31 ; i++) {
-			for(int j=1;j<2;j++) {
-			totalInIndia = new TotalInIndiaModel(table.getCellAt(i, j+1).asText(),table.getCellAt(i, j+2).asText(),table.getCellAt(i, j+3).asText());
+		for (int i = 31; i < 32; i++) {
+			for (int j = 1; j < 2; j++) {
+				totalInIndia = new TotalInIndiaModel(table.getCellAt(i, j + 1).asText(),
+						table.getCellAt(i, j + 2).asText(), table.getCellAt(i, j + 3).asText());
+			}
 		}
-	}
 //			System.out.println(table.getCellAt(i, j).asText()+table.getCellAt(i, j+1).asText()+" "+table.getCellAt(i, j+3).asText()+" "+table.getCellAt(i, j+5).asText()+" "+table.getCellAt(i, j+6).asText());
-				
-		
-		return totalInIndia;	
-	}
-	
 
-	
-	
+		return totalInIndia;
+	}
 
 //	@RequestMapping("/country")
 //	public ArrayList<CheckedCountryModel> checkCountry(@RequestParam(value = "countryname",
@@ -181,62 +165,41 @@ public class WebController {
 //				return arrayList;
 //		
 //	}
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 	@RequestMapping("/country")
-	public CheckedCountryModel checkCountry(@RequestParam(value = "countryname",
-			defaultValue = "India") String countryname) throws Exception{
-		
+	public CheckedCountryModel checkCountry(
+			@RequestParam(value = "countryname", defaultValue = "India") String countryname) throws Exception {
+
 		WebClient client = new WebClient();
 		client.getOptions().setCssEnabled(false);
 		client.getOptions().setJavaScriptEnabled(false);
 
 		final String url = "https://www.worldometers.info/coronavirus/";
 		HtmlPage page = client.getPage(url);
-		final HtmlTable table = page.getHtmlElementById("main_table_countries_today");		
-		
-		
-		
+		final HtmlTable table = page.getHtmlElementById("main_table_countries_today");
+
 		CheckedCountryModel countryModel = null;
 
-		
-		 for(int i = 1 ; i<207 ; i++) {
-		for(int j=0;j<1;j++) {
-			if(countryname.contains(table.getCellAt(i, j).asText())) {
-				countryModel = new CheckedCountryModel(table.getCellAt(i, j).asText(), table.getCellAt(i, j+1).asText(), table.getCellAt(i, j+3).asText(), table.getCellAt(i, j+5).asText(), table.getCellAt(i, j+6).asText());
+		for (int i = 1; i < 207; i++) {
+			for (int j = 0; j < 1; j++) {
+				if (countryname.contains(table.getCellAt(i, j).asText())) {
+					countryModel = new CheckedCountryModel(table.getCellAt(i, j).asText(),
+							table.getCellAt(i, j + 1).asText(), table.getCellAt(i, j + 3).asText(),
+							table.getCellAt(i, j + 5).asText(), table.getCellAt(i, j + 6).asText());
+				}
+
 			}
-				
 		}
-	}
 //			System.out.println(table.getCellAt(i, j).asText()+table.getCellAt(i, j+1).asText()+" "+table.getCellAt(i, j+3).asText()+" "+table.getCellAt(i, j+5).asText()+" "+table.getCellAt(i, j+6).asText());
-		
-				return countryModel;
-		
+
+		return countryModel;
+
 	}
-	
-	
-	
 
 	@RequestMapping("/state")
-	public CheckStateModel checkInState(@RequestParam(value = "statename",
-			defaultValue = "Maharashtra") String statename) throws Exception{
-		
+	public CheckStateModel checkInState(
+			@RequestParam(value = "statename", defaultValue = "Maharashtra") String statename) throws Exception {
+
 		WebClient client = new WebClient();
 		client.getOptions().setCssEnabled(false);
 		client.getOptions().setJavaScriptEnabled(false);
@@ -244,27 +207,22 @@ public class WebController {
 		final String url = "https://www.mohfw.gov.in/";
 		HtmlPage page = client.getPage(url);
 
-		
 		final HtmlTable table = (HtmlTable) page.getByXPath("//table[@class='table table-striped']").get(0);
-		
+
 		CheckStateModel stateModel = null;
-		
-		for(int i = 1 ; i<30 ; i++) {
-			for(int j=1;j<2;j++) {
-				if(statename.contains(table.getCellAt(i, j).asText())) {
-					stateModel = new CheckStateModel(table.getCellAt(i, j).asText(), table.getCellAt(i, j+1).asText(), table.getCellAt(i, j+2).asText(), table.getCellAt(i, j+3).asText());
+
+		for (int i = 1; i < 31; i++) {
+			for (int j = 1; j < 2; j++) {
+				if (statename.contains(table.getCellAt(i, j).asText())) {
+					stateModel = new CheckStateModel(table.getCellAt(i, j).asText(), table.getCellAt(i, j + 1).asText(),
+							table.getCellAt(i, j + 2).asText(), table.getCellAt(i, j + 3).asText());
 				}
 			}
 		}
-		
+
 		System.out.println("running....");
-		return stateModel ;
-						
-		
+		return stateModel;
+
 	}
 
-	
-	
-	
-	
 }
