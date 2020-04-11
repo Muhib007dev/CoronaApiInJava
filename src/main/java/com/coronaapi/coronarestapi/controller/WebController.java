@@ -44,7 +44,7 @@ public class WebController {
 
 		ArrayList<SampleResponse> arrayList = new ArrayList<SampleResponse>();
 
-		for (int i = 1; i < 31; i++) {
+		for (int i = 1; i < 32; i++) {
 			for (int j = 1; j < 2; j++) {
 				arrayList.add(new SampleResponse(table.getCellAt(i, j).asText(), table.getCellAt(i, j + 1).asText(),
 						table.getCellAt(i, j + 2).asText(), table.getCellAt(i, j + 3).asText()));
@@ -69,8 +69,8 @@ public class WebController {
 
 		ArrayList<AllCountryModel> arrayList = new ArrayList<AllCountryModel>();
 
-		for (int i = 1; i < 212; i++) {
-			for (int j = 0; j < 1; j++) {
+		 for(int i = 9 ; i<220 ; i++) {
+		for(int j=0;j<1;j++) {
 				arrayList.add(new AllCountryModel(table.getCellAt(i, j).asText(), table.getCellAt(i, j + 1).asText(),
 						table.getCellAt(i, j + 3).asText(), table.getCellAt(i, j + 5).asText(),
 						table.getCellAt(i, j + 6).asText()));
@@ -95,8 +95,8 @@ public class WebController {
 
 		TotalModel model = null;
 
-		 for(int i = 212 ; i<213 ; i++) {
-		for(int j=0;j<1;j++) {
+		for (int i = 8; i < 9; i++) {
+			for (int j = 0; j < 1; j++) {
 				model = new TotalModel(table.getCellAt(i, j + 1).asText(), table.getCellAt(i, j + 3).asText(),
 						table.getCellAt(i, j + 5).asText(), table.getCellAt(i, j + 6).asText());
 			}
@@ -121,7 +121,7 @@ public class WebController {
 
 		TotalInIndiaModel totalInIndia = null;
 
-		for (int i = 31; i < 32; i++) {
+		for (int i = 32; i < 33; i++) {
 			for (int j = 1; j < 2; j++) {
 				totalInIndia = new TotalInIndiaModel(table.getCellAt(i, j + 1).asText(),
 						table.getCellAt(i, j + 2).asText(), table.getCellAt(i, j + 3).asText());
@@ -131,40 +131,6 @@ public class WebController {
 
 		return totalInIndia;
 	}
-
-//	@RequestMapping("/country")
-//	public ArrayList<CheckedCountryModel> checkCountry(@RequestParam(value = "countryname",
-//			defaultValue = "Please Check The Parameter") String countryname) throws Exception{
-//		
-//		WebClient client = new WebClient();
-//		client.getOptions().setCssEnabled(false);
-//		client.getOptions().setJavaScriptEnabled(false);
-//
-//		final String url = "https://www.worldometers.info/coronavirus/";
-//		HtmlPage page = client.getPage(url);
-//		final HtmlTable table = page.getHtmlElementById("main_table_countries_today");		
-//		
-//		ArrayList<CheckedCountryModel> arrayList = new ArrayList<CheckedCountryModel>();
-//
-//		
-//		
-////		CheckedCountryModel countryModel = new CheckedCountryModel(countryname, countryname, countryname, countryname, countryname);
-//
-//
-//		
-//		 for(int i = 1 ; i<203 ; i++) {
-//		for(int j=0;j<1;j++) {
-//			if(countryname.contains(table.getCellAt(i, j).asText())) {
-//				arrayList.add(new CheckedCountryModel(table.getCellAt(i, j).asText(), table.getCellAt(i, j+1).asText(), table.getCellAt(i, j+3).asText(), table.getCellAt(i, j+5).asText(), table.getCellAt(i, j+6).asText()));
-//			}
-//				
-//		}
-//	}
-////			System.out.println(table.getCellAt(i, j).asText()+table.getCellAt(i, j+1).asText()+" "+table.getCellAt(i, j+3).asText()+" "+table.getCellAt(i, j+5).asText()+" "+table.getCellAt(i, j+6).asText());
-//		
-//				return arrayList;
-//		
-//	}
 
 	@RequestMapping("/country")
 	public CheckedCountryModel checkCountry(
@@ -180,9 +146,8 @@ public class WebController {
 
 		CheckedCountryModel countryModel = null;
 
-
-		for (int i = 1; i < 212; i++) {
-			for (int j = 0; j < 1; j++) {
+		 for(int i = 9 ; i<220 ; i++) {
+		for(int j=0;j<1;j++) {
 				if (countryname.contains(table.getCellAt(i, j).asText())) {
 					countryModel = new CheckedCountryModel(table.getCellAt(i, j).asText(),
 							table.getCellAt(i, j + 1).asText(), table.getCellAt(i, j + 3).asText(),
@@ -212,7 +177,7 @@ public class WebController {
 
 		CheckStateModel stateModel = null;
 
-		for (int i = 1; i < 31; i++) {
+		for (int i = 1; i < 32; i++) {
 			for (int j = 1; j < 2; j++) {
 				if (statename.contains(table.getCellAt(i, j).asText())) {
 					stateModel = new CheckStateModel(table.getCellAt(i, j).asText(), table.getCellAt(i, j + 1).asText(),
@@ -227,3 +192,37 @@ public class WebController {
 	}
 
 }
+
+//@RequestMapping("/country")
+//public ArrayList<CheckedCountryModel> checkCountry(@RequestParam(value = "countryname",
+//		defaultValue = "Please Check The Parameter") String countryname) throws Exception{
+//	
+//	WebClient client = new WebClient();
+//	client.getOptions().setCssEnabled(false);
+//	client.getOptions().setJavaScriptEnabled(false);
+//
+//	final String url = "https://www.worldometers.info/coronavirus/";
+//	HtmlPage page = client.getPage(url);
+//	final HtmlTable table = page.getHtmlElementById("main_table_countries_today");		
+//	
+//	ArrayList<CheckedCountryModel> arrayList = new ArrayList<CheckedCountryModel>();
+//
+//	
+//	
+////	CheckedCountryModel countryModel = new CheckedCountryModel(countryname, countryname, countryname, countryname, countryname);
+//
+//
+//	
+//	 for(int i = 1 ; i<203 ; i++) {
+//	for(int j=0;j<1;j++) {
+//		if(countryname.contains(table.getCellAt(i, j).asText())) {
+//			arrayList.add(new CheckedCountryModel(table.getCellAt(i, j).asText(), table.getCellAt(i, j+1).asText(), table.getCellAt(i, j+3).asText(), table.getCellAt(i, j+5).asText(), table.getCellAt(i, j+6).asText()));
+//		}
+//			
+//	}
+//}
+////		System.out.println(table.getCellAt(i, j).asText()+table.getCellAt(i, j+1).asText()+" "+table.getCellAt(i, j+3).asText()+" "+table.getCellAt(i, j+5).asText()+" "+table.getCellAt(i, j+6).asText());
+//	
+//			return arrayList;
+//	
+//}
