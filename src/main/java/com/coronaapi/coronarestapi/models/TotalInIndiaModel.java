@@ -16,7 +16,12 @@ public class TotalInIndiaModel {
 		this.cured = cured;
 		this.death = death;
 	}
-	public String getTotalConfirmedCases() {
+
+    public TotalInIndiaModel() {
+
+    }
+
+    public String getTotalConfirmedCases() {
 		return totalConfirmedCases;
 	}
 	public void setTotalConfirmedCases(String totalConfirmedCases) {

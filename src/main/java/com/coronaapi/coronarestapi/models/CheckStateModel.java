@@ -12,6 +12,11 @@ public class CheckStateModel {
 		this.cured = cured;
 		this.death = death;
 	}
+
+	public CheckStateModel() {
+
+	}
+
 	public String getState() {
 		return state;
 	}
