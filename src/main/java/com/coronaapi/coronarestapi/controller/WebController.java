@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -148,7 +149,7 @@ public class WebController {
 
 		 for(int i = 9 ; i<220 ; i++) {
 		for(int j=0;j<1;j++) {
-				if (countryname.contains(table.getCellAt(i, j).asText())) {
+				if (StringUtils.containsIgnoreCase(countryname, table.getCellAt(i, j).asText())) {
 					countryModel = new CheckedCountryModel(table.getCellAt(i, j).asText(),
 							table.getCellAt(i, j + 1).asText(), table.getCellAt(i, j + 3).asText(),
 							table.getCellAt(i, j + 5).asText(), table.getCellAt(i, j + 6).asText());
@@ -179,7 +180,8 @@ public class WebController {
 
 		for (int i = 1; i < 32; i++) {
 			for (int j = 1; j < 2; j++) {
-				if (statename.contains(table.getCellAt(i, j).asText())) {
+
+				if (StringUtils.containsIgnoreCase(statename,table.getCellAt(i, j).asText())) {
 					stateModel = new CheckStateModel(table.getCellAt(i, j).asText(), table.getCellAt(i, j + 1).asText(),
 							table.getCellAt(i, j + 2).asText(), table.getCellAt(i, j + 3).asText());
 				}
