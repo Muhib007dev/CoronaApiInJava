@@ -30,7 +30,7 @@ public class WebController {
 
 		ArrayList<SampleResponse> arrayList = new ArrayList<>();
 
-		for (int i = 1; i < 32; i++) {
+		for (int i = 1; i < 33; i++) {
 			for (int j = 1; j < 2; j++) {
 				arrayList.add(new SampleResponse(table.getCellAt(i, j).asText(), table.getCellAt(i, j + 1).asText(),
 						table.getCellAt(i, j + 2).asText(), table.getCellAt(i, j + 3).asText()));
@@ -58,7 +58,7 @@ public class WebController {
 
 		ArrayList<AllCountryModel> arrayList = new ArrayList<>();
 
-		 for(int i = 9 ; i<220 ; i++) {
+		 for(int i = 9 ; i<221 ; i++) {
 		for(int j=0;j<1;j++) {
 				arrayList.add(new AllCountryModel(table.getCellAt(i, j).asText(), table.getCellAt(i, j + 1).asText(),
 						table.getCellAt(i, j + 3).asText(), table.getCellAt(i, j + 5).asText(),
@@ -102,7 +102,7 @@ public class WebController {
 
 		TotalInIndiaModel totalInIndia = new TotalInIndiaModel();
 		TotalInIndiaModel finalTotalInIndia = totalInIndia;
-		IntStream.range(32, 33).forEach(index -> {
+		IntStream.range(33, 34).forEach(index -> {
 			finalTotalInIndia.setTotalConfirmedCases(table.getCellAt(index, 2).asText());
 			finalTotalInIndia.setCured(table.getCellAt(index, 3).asText());
 			finalTotalInIndia.setDeath(table.getCellAt(index, 4).asText());
@@ -121,7 +121,7 @@ public class WebController {
 
 		CheckedCountryModel countryModel = null;
 
-		 for(int i = 9 ; i<220 ; i++) {
+		 for(int i = 9 ; i<221 ; i++) {
 		for(int j=0;j<1;j++) {
 				if (StringUtils.containsIgnoreCase(countryname, table.getCellAt(i, j).asText())) {
 					countryModel = new CheckedCountryModel(table.getCellAt(i, j).asText(),
@@ -147,7 +147,7 @@ public class WebController {
 		final HtmlTable table = (HtmlTable) page.getByXPath("//table[@class='table table-striped']").get(0);
 
 		CheckStateModel checkStateModel = new CheckStateModel();
-		IntStream.range(1, 32).forEach(index -> {
+		IntStream.range(1, 33).forEach(index -> {
 			if (StringUtils.containsIgnoreCase(stateName, table.getCellAt(index, 1).asText())) {
 				checkStateModel.setState(stateName);
 				checkStateModel.setTotalConfirmedCases(table.getCellAt(index, 2).asText());
