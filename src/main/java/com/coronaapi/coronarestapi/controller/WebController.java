@@ -82,8 +82,8 @@ public class WebController {
 
 		for (int i = 8; i < 9; i++) {
 			for (int j = 0; j < 1; j++) {
-				model = new TotalModel(table.getCellAt(i, j + 1).asText(), table.getCellAt(i, j + 3).asText(),
-						table.getCellAt(i, j + 5).asText(), table.getCellAt(i, j + 6).asText());
+				model = new TotalModel(table.getCellAt(i, j + 2).asText(), table.getCellAt(i, j + 4).asText(),
+						table.getCellAt(i, j + 6).asText(), table.getCellAt(i, j + 8).asText());
 			}
 		}
 //			System.out.println(table.getCellAt(i, j).asText()+table.getCellAt(i, j+1).asText()+" "+table.getCellAt(i, j+3).asText()+" "+table.getCellAt(i, j+5).asText()+" "+table.getCellAt(i, j+6).asText());
