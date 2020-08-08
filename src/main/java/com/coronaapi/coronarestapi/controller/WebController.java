@@ -26,7 +26,7 @@ public class WebController {
 		WebClient client = initializeWebClient();
 		HtmlPage page = client.getPage(MOHFW_URL);
 
-		final HtmlTable table = (HtmlTable) page.getByXPath("//table[@class='table table-striped']").get(0);
+		final HtmlTable table = (HtmlTable) page.getByXPath("//table[@class='statetable table table-striped']").get(0);
 
 		ArrayList<SampleResponse> arrayList = new ArrayList<>();
 
