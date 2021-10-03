@@ -23,7 +23,7 @@ public class WebController {
 		
 		List<HtmlTableRow> rows = StaticHelper.getMoHFWData();
 		ArrayList<IndiaStateModel> responseList = new ArrayList<>();
-		for (int i = 0; i < 35; i++) {
+		for (int i = 0; i < 36; i++) {
 			responseList.add(new IndiaStateModel(rows.get(i).getCell(1).asText(), rows.get(i).getCell(2).asText(),
 					rows.get(i).getCell(4).asText(), rows.get(i).getCell(6).asText()));
 		}
@@ -66,7 +66,7 @@ public class WebController {
 	@GetMapping("/total-in-india")
 	public TotalInIndiaModel totalInIndia() throws Exception {
 
-		HtmlTableRow totalsRow = StaticHelper.getMoHFWData().get(35);
+		HtmlTableRow totalsRow = StaticHelper.getMoHFWData().get(36);
 		TotalInIndiaModel totalInIndia = new TotalInIndiaModel();
 		totalInIndia.setTotalActiveCases(totalsRow.getCell(1).asText());
 		totalInIndia.setCured(totalsRow.getCell(3).asText());
