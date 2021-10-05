@@ -1,12 +1,12 @@
 package com.coronaapi.coronarestapi.models;
 
-public class TotalModel {
+public class TotalWorldModel {
 	String total;
 	String death;
 	String recovered;
 	String active;
 
-	public TotalModel(String total, String death, String recovered, String active) {
+	public TotalWorldModel(String total, String death, String recovered, String active) {
 		super();
 		this.total = total;
 		this.death = death;
