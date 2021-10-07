@@ -49,5 +49,4 @@ public class IndiaStateModel {
         this.death = death;
     }
 
-
 }
