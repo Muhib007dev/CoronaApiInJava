@@ -9,8 +9,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class CoronarestapiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CoronarestapiApplication.class, args);
-		
+		SpringApplication.run(CoronarestapiApplication.class, args);	
 	}
 
 }

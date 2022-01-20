@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>localhost testing</title>
+  <title>LAN</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css">
@@ -27,7 +27,7 @@
     </ul>
   </nav>
   <div class="hero">
-    <h1 class="hero__title">Covid-19 Rest API- local</h1>
+    <h1 class="hero__title">Covid-19 Rest AP- lanI</h1>
     <p class="hero__description"><b>Data for this API is collected from <a href="https://www.worldometers.info/coronavirus" target="_blank">www.worldometers.info/coronavirus</a> <i>and</i>
         <a href="https://www.mohfw.gov.in" target="_blank">www.mohfw.gov.in</a></b></p>
   </div>
@@ -47,9 +47,9 @@
           <li class="tab" data-tab="worldtotal">Total</li>
         </ul>
         <pre class="nohighlight code">
-            <code class="tab__pane active world">$ curl <a href="https://covid19restapi.herokuapp.com/all-countries">https://covid19restapi.herokuapp.com/all-countries</a></code>
-            <code class="tab__pane bycountry">$ curl <a href="https://covid19restapi.herokuapp.com/country?countryname=USA">https://covid19restapi.herokuapp.com/country?countryname=USA</a></code>
-            <code class="tab__pane worldtotal">$ curl <a href="https://covid19restapi.herokuapp.com/total-world">https://covid19restapi.herokuapp.com/total-world</a></code>
+            <code class="tab__pane active world">$ curl <a href="http://192.168.0.5/all-countries">https://covid19restapi.herokuapp.com/all-countries</a></code>
+            <code class="tab__pane bycountry">$ curl <a href="http://192.168.0.5/country?countryname=USA">https://covid19restapi.herokuapp.com/country?countryname=USA</a></code>
+            <code class="tab__pane worldtotal">$ curl <a href="http://192.168.0.5/total-world">https://covid19restapi.herokuapp.com/total-world</a></code>
           </pre>
       </div>
     </div>
@@ -64,9 +64,9 @@
           <li class="tab" data-tab="win">Total</li>
         </ul>
         <pre class="nohighlight code">
-                        <code class="tab__pane active mac">$ curl <a href="http://covid19restapi.herokuapp.com/india-states-data">http://covid19restapi.herokuapp.com/india-states-data</a></code>
-                        <code class="tab__pane linux">$ curl <a href="http://covid19restapi.herokuapp.com/state?statename=Maharashtra">http://covid19restapi.herokuapp.com/state?statename=Maharashtra</a></code>
-                        <code class="tab__pane win">$ curl <a href="http://covid19restapi.herokuapp.com/total-in-india">http://covid19restapi.herokuapp.com/total-in-india</a></code>
+                        <code class="tab__pane active mac">$ curl <a href="http://192.168.0.5/india-states-data">http://covid19restapi.herokuapp.com/india-states-data</a></code>
+                        <code class="tab__pane linux">$ curl <a href="http://192.168.0.5/state?statename=Maharashtra">http://covid19restapi.herokuapp.com/state?statename=Maharashtra</a></code>
+                        <code class="tab__pane win">$ curl <a href="http://192.168.0.5/total-in-india">http://covid19restapi.herokuapp.com/total-in-india</a></code>
                       </pre>
       </div>
     </div>
